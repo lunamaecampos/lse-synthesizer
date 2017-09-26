@@ -1,0 +1,37 @@
+{
+  "name": "oscilloscope.js",
+  "main": "oscilloscope.js",
+  "homepage": "https://github.com/Sambego/oscilloscope.js",
+  "authors": [
+    "Sam Bellen <sambellen@gmail.com>"
+  ],
+  "description": "A small javascript plugin to create an oscilloscope of an audio-context.",
+  "moduleType": [],
+  "keywords": [
+    "webaudio",
+    "svg",
+    "audio",
+    "oscillator",
+    "oscilloscope",
+    "web-audio-api"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "version": "0.1.1",
+  "_release": "0.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.1",
+    "commit": "0fe3c795f57a62262f74b8ead52ac44d17776cdf"
+  },
+  "_source": "https://github.com/Sambego/oscilloscope.js.git",
+  "_target": "^0.1.1",
+  "_originalSource": "oscilloscope.js",
+  "_direct": true
+}

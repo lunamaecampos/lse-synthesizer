@@ -1,0 +1,21 @@
+<h3>Register</h3>
+<form name="registerForm">
+	Name: <input type="text" ng-model="newUser.name" name="name" ng-minlength="2" required>
+	<div ng-messages="registerForm.name.$error" role="alert">
+		<h6 ng-message="required">Name is required</h6>
+		<h6 ng-message="minlength">Name must be at least 2 characters</h6>
+	</div>
+	Email: <input type="email" ng-model="newUser.email" name="email" required>
+	<div ng-messages="registerForm.email.$error">
+		<h6 ng-message="required">Email is required</h6>
+		<h6 ng-message="email">Email must be formatted correctly.</h6>
+	</div>
+	Password: <input type="password" ng-model="newUser.password" name="password" minlength="8" required>
+	<div ng-messages="registerForm.password.$error">
+		<h6 ng-message="required">Password is required</h6>
+		<h6 ng-message="minlength">Password must be at least 8 characters</h6>
+	</div>
+	Password Confirmation: <input type="password" ng-model="newUser.password_confirmation" name="password_conf">
+	<h6 ng-if="newUser.password != newUser.password_confirmation">Passwords do not match.</h6>
+	<button ng-disabled="registerForm.$invalid" ng-click="register(newUser)">Register</button>
+</form>

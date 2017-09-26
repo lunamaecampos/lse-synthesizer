@@ -1,0 +1,22 @@
+button{
+  font-size: 15px;
+  font-family: "Verdana", Geneva, sans-serif;
+  text-decoration: none;
+  padding: 2px;
+  color: black;
+  background-color: rgba(234, 234, 234, 0.5)
+  border: 5px outset;
+  border: 2px outset rgba(234, 234, 234, 0.5);
+}
+button:hover{
+  background-color: black;
+  border: 2px outset white;
+  color: white;
+  padding: 2px;
+}
+p{
+  font-size: 10px;
+}
+a:hover{
+  color: skyblue;
+}

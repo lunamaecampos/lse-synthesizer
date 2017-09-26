@@ -1,0 +1,196 @@
+<link rel="stylesheet" href="static/css/home.css">
+<h3>The LSE Synth</h3>
+<div id="wrapper">
+    <div class="user">
+        <h2>Hello {{user.name}}<a id="links" href="#!/logout">Logout</a></h2>
+    </div>
+
+    <div id="synthmodule">
+      <span id="meanie">M E A N S Y N T H</span>
+      <span id="lse">L S E</span>
+      <div id="redjunobar">
+        <span id="wavehead">DCO</span>
+        <span id="lfohead">LFO</span>
+        <span id="patchhead">Patch</span>
+        <span id="lpfhead">VCF</span>
+        <span id="envhead">ENV</span>
+      </div>
+      <form>
+      <div id="osctray">
+        <div id="button"><br><a id='ledlight'input type="radio"></a><br><button class='junobutton1'></button><br><span class='modparam'>∿</span></div>
+        <div id="button"><br><a id='ledlight'input type="radio"></a><br><button class='junobutton1'></button><br><span class='modparam'>△</span></div>
+        <div id="button"><br><a id='ledlight'input type="radio"></a><br><button class='junobutton1'></button><br><span class='modparam'>▢</span></div>
+        <div id="button"><br><a id='ledlight'input type="radio"></a><br><button class='junobutton1'></button><br><span class='modparam'>⊿</span></div>
+        <span>Current waveform: </span>
+<select name="waveform">
+  <option value="sine">Sine</option>
+  <option value="square" selected>Square</option>
+  <option value="sawtooth">Sawtooth</option>
+  <option value="triangle">Triangle</option>
+  <option value="custom">Custom</option>
+</select>
+      </div>
+      <div id="lfotray">
+        <div id="fader">
+          <span class='modparam'>Rate</span><br><input type="range" min="0" max="1" ng-value="currentConfig.slforat" step="0.001" class="vertical" orient="vertical" list="lfo" ng-model="newPatch.slforate">
+          <datalist id="lfo">
+            <option>0</option>
+            <option>0.2</option>
+            <option>0.4</option>
+            <option>0.6</option>
+            <option>0.8</option>
+            <option>1</option>
+          </datalist>
+        </div>
+        <div id="fader">
+          <span  class='modparam'>Delay</span><br><input type="range" min="1" max="4" ng-value="currentConfig.slfodelay" step="0.01" class="vertical" orient="vertical" list="delay" ng-model ="newPatch.slfodelay">
+          <datalist id="delay">
+            <option>1</option>
+            <option>1.6</option>
+            <option>2.2</option>
+            <option>2.8</option>
+            <option>3.4</option>
+            <option>4</option>
+          </datalist>
+        </div>
+      </div>
+      <div id="patchtray">
+        <div id="patchmenu">
+          <select ng-model="desiredSetting">
+            <option ng-repeat = "patch in patches" value="{{patch._id}}">{{patch.patch_name}}</option>
+          </select>
+           <button ng-click="currentSetting(desiredSetting)">Load Patch</button>
+          <br> <input type="text" value="Patch Name" ng-model="newPatch.patch_name"><br><button type="button" ng-click="createPatch(newPatch)">Save</button>
+        </div>
+      </div>
+      <div id="vcftray">
+        <div id="fader">
+          <span class='modparam'>Freq</span><br><input type="range" min="0" max="1" ng-value="currentConfig.svcffreq" step="0.001" class="vertical" orient="vertical" list="cutoff" ng-model="newPatch.svcffreq">
+          <datalist id="cutoff">
+            <option>0</option>
+            <option>0.2</option>
+            <option>0.4</option>
+            <option>0.6</option>
+            <option>0.8</option>
+            <option>1</option>
+          </datalist>
+        </div>
+        <div id="fader">
+          <span class='modparam'>Res</span><br><input type="range" min="1" max="4" ng-value="currentConfig.svcfres" step="0.01" class="vertical" orient="vertical" list="resonance" ng-model="newPatch.svcfres">
+          <datalist id="resonance">
+            <option>1</option>
+            <option>1.6</option>
+            <option>2.2</option>
+            <option>2.8</option>
+            <option>3.4</option>
+            <option>4</option>
+          </datalist>
+        </div>
+      </div>
+      <div id="adsrtray">
+        <div id="fader">
+          <span class='modparam'>ATK</span><br><input type="range" min="0" max="100" ng-value="currentConfig.senvatk" step="0.01" class="vertical" orient="vertical" list="attack" ng-model="newPatch.senvatk">
+          <datalist id="attack">
+            <option>0</option>
+            <option>20</option>
+            <option>40</option>
+            <option>60</option>
+            <option>80</option>
+            <option>100</option>
+          </datalist>
+        </div>
+        <div id="fader">
+          <span class='modparam'>DCY</span><br><input type="range" min="0" max="100" ng-value="currentConfig.senvdcy" step="0.01" class="vertical" orient="vertical" list="decay" ng-model="newPatch.senvdcy">
+          <datalist id="decay">
+            <option>0</option>
+            <option>20</option>
+            <option>40</option>
+            <option>60</option>
+            <option>80</option>
+            <option>100</option>
+          </datalist>
+        </div>
+        <div id="fader">
+          <span class='modparam'>SUS</span><br><input type="range" min="0" max="100" ng-value="currentConfig.senvsus" step="0.01" class="vertical" orient="vertical" list="sustain" ng-model="newPatch.senvsus">
+          <datalist id="sustain">
+            <option>0</option>
+            <option>20</option>
+            <option>40</option>
+            <option>60</option>
+            <option>80</option>
+            <option>100</option>
+          </datalist>
+        </div>
+        <div id="fader">
+          <span class='modparam'>RLS</span><br><input type="range" min="0" max="100" ng-value="currentConfig.senvrls" step="0.01" class="vertical" orient="vertical" list="release" ng-model="newPatch.senvrls">
+          <datalist id="release">
+            <option>0</option>
+            <option>20</option>
+            <option>40</option>
+            <option>60</option>
+            <option>80</option>
+            <option>100</option>
+          </datalist>
+        </div>
+      </div>
+      <div id="bluejunobar">
+        <span id="hpfhead">HPF</span>
+        <span id="vcahead">VCA</span>
+        <span id="oschead">Oscilloscope</span>
+        <span id="chorushead">Chorus</span>
+      </div>
+      <div id="hpftray">
+        <div id="fader">
+          <span class="modparam">Freq</span><br>
+          <input type="range" min="0" max="100" ng-value="currentConfig.shpffreq" step="20" class="vertical" orient="vertical" list="vca" ng-model="newPatch.shpffreq">
+          <datalist id="vca">
+            <option>0</option>
+            <option>20</option>
+            <option>40</option>
+            <option>60</option>
+            <option>80</option>
+            <option>100</option>
+          </datalist>
+        </div>
+      </div>
+      <div id="vcatray">
+          <div id="fader">
+            <span class="modparam">Level</span><br>
+            <input type="range" min="0" max="100" ng-value="currentConfig.svcalevel" step="0.01" class="vertical" orient="vertical" list="vca" ng-model="newPatch.svcalevel">
+            <datalist id="vca">
+              <option>0</option>
+              <option>20</option>
+              <option>40</option>
+              <option>60</option>
+              <option>80</option>
+              <option>100</option>
+            </datalist>
+          </div>
+      </div>
+      <div id="scopepatchtray">
+        <div id="scopetray" class="oscilloscope__wave"></div>
+      </div>
+      <div id="chorustray">
+          <span class="modsection">Chorus</span>
+          <div id="button"><a id='ledlight'></a><br><button class='junobutton3'></button><br><span class='modparam'>Off</span></div>
+          <div id="button"><a id='ledlight'></a><br><button class='junobutton1'></button><br><span class='modparam'>I</span></div>
+          <div id="button"><a id='ledlight'></a><br><button class='junobutton2'></button><br><span class='modparam'>II</span></div>
+      </div>
+    </form>
+      <div id="keybox" touch-action="none">
+        <div class="container">
+          <div id="blackkeys">
+            <div class="blackkeys"></div>
+          </div>
+          <div class="whitekeys"></div>
+        </div>
+      </div>
+    </div>
+    <div class="topfive">
+
+    </div>
+    <div class="explain">
+
+    </div>
+</div>
+<script type="text/javascript" src="static/synth.js"></script>
