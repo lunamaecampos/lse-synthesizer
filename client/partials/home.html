@@ -1,9 +1,8 @@
 <link rel="stylesheet" href="static/css/home.css">
-<h3>The LSE Synth</h3>
-<div id="wrapper">
-    <div class="user">
-        <h2>Hello {{user.name}}<a id="links" href="#!/logout">Logout</a></h2>
-    </div>
+<div id="userbar">
+    Hello {{user.name}}<a href="#!/logout" style="font-family: 'Candal', sans-serif; text-decoration:none; margin-left:60%;">Logout</a>
+</div>
+<div id="wrapper" >
 
     <div id="synthmodule">
       <span id="meanie">M E A N S Y N T H</span>
@@ -22,13 +21,13 @@
         <div id="button"><br><a id='ledlight'input type="radio"></a><br><button class='junobutton1'></button><br><span class='modparam'>▢</span></div>
         <div id="button"><br><a id='ledlight'input type="radio"></a><br><button class='junobutton1'></button><br><span class='modparam'>⊿</span></div>
         <span>Current waveform: </span>
-<select name="waveform">
-  <option value="sine">Sine</option>
-  <option value="square" selected>Square</option>
-  <option value="sawtooth">Sawtooth</option>
-  <option value="triangle">Triangle</option>
-  <option value="custom">Custom</option>
-</select>
+        <select name="waveform">
+          <option value="sine">Sine</option>
+          <option value="square" selected>Square</option>
+          <option value="sawtooth">Sawtooth</option>
+          <option value="triangle">Triangle</option>
+          <option value="custom">Custom</option>
+        </select>
       </div>
       <div id="lfotray">
         <div id="fader">
@@ -56,11 +55,11 @@
       </div>
       <div id="patchtray">
         <div id="patchmenu">
-          <select ng-model="desiredSetting">
+          <select style="color:black;" ng-model="desiredSetting">
             <option ng-repeat = "patch in patches" value="{{patch._id}}">{{patch.patch_name}}</option>
           </select>
-           <button ng-click="currentSetting(desiredSetting)">Load Patch</button>
-          <br> <input type="text" value="Patch Name" ng-model="newPatch.patch_name"><br><button type="button" ng-click="createPatch(newPatch)">Save</button>
+           <button style="color:black;" ng-click="currentSetting(desiredSetting)">Load Patch</button>
+          <br> <input type="text" value="Patch Name" style="color:black;" ng-model="newPatch.patch_name"><br><button type="button" style="color:black;" ng-click="createPatch(newPatch)">Save</button>
         </div>
       </div>
       <div id="vcftray">

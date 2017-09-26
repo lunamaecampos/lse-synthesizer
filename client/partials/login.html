@@ -1,12 +1,14 @@
 <link rel="stylesheet" href="static/css/login.css">
 <div id="wrapper">
 		<div class="login">
-				<h3>L O G I N </h3>
-				<form>
-						Email:<input type="email" name="email" placeholder="Enter your Email" ng-model="loginUser.email">
-						Password:<input type="password" name"password" placeholder="Password" ng-model="loginUser.password">
+			<div id="formdiv">
+				<h3 style="color:black;">Login | <a href="#!/register">Register</a></h3>
+				<form style="color:black;">
+						Email:<input type="email" name="email" placeholder="Enter your Email" ng-model="loginUser.email"><br>
+						Password:<input type="password" name"password" placeholder="Password" ng-model="loginUser.password"><br>
 						<button ng-click="login(loginUser)">Login</button>
 				</form>
 				<p>Don't have an account? <a href="#!/register" class="registerlink">Register Here!</a></p>
+			</div>
 		</div>
 </div>

@@ -2,7 +2,20 @@
   color:grey;
 }*/
 body{
-  width: 1366px;
-  height: 768px;
+  /*width: 1366px;
+  height: 768px;*/
+  margin: 0;
   background-image: url("../img/synth_one.jpg");
+}
+
+#welcomebar{
+  padding-left: 1%;
+  width:100%;
+  height: auto;
+  /*background-color: black;*/
+  font-size: 3em;
+  background: linear-gradient(270deg, rgba(255,255,255,0), black);
+}
+#wrapper{
+  padding-top: 2em;
 }

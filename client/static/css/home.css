@@ -10,18 +10,18 @@ h2{
   font-family: "Verdana", Geneva, sans-serif;
 }
 #links{
-  font-size: 15px;
+  /*font-size: 2em;*/
   font-family: "Verdana", Geneva, sans-serif;
   text-decoration: none;
   padding: 2px;
   background-color: rgba(234, 234, 234, 0.5)
   border: 5px outset;
-  margin-left: 450px;
+  /*margin-left: 450px;*/
   color: white;
+  text-align: right;
 }
 #links:hover{
-  background-color: black;
-  border: 2px outset white;
+
 }
 #wrapper{
   width: 1024px;
